@@ -41,16 +41,20 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+// 收到多进程运算的输出
 ipcMain.on('procs-message', (event, data) => {
-    mainWindow.webContents.send('test', data);
+    mainWindow.webContents.send('procs-message', data);
     // console.log(data);
 });
 
+// 用户点击 GUI 上的 start 按钮后，开启多进程运算
 ipcMain.on('start-button-click', (event, data) => {
     mainWindow.webContents.send('procs-start');
     // console.log(data);
 });
 
+// 用户点击 GUI 上的 SIGINT 按钮后，结束多进程运算
 ipcMain.on('sigint-button-click', (event, data) => {
     mainWindow.webContents.send('procs-stop');
     // console.log(data);
