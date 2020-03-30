@@ -1,0 +1,114 @@
+html {
+    /* background-color: darkslategray; */
+    background-color: #1b2b34;
+}
+
+body {
+    -webkit-app-region: drag;
+}
+
+button {
+    -webkit-app-region: no-drag;
+}
+
+textarea {
+    color: #1d1d1d;
+    font-size: 12px;
+    resize: none；
+}
+
+p {
+    color: aliceblue;
+}
+
+#title-parent {
+    position: absolute;
+    left: 100px;
+    top: 30px;
+}
+
+#textarea-parent {
+    position: absolute;
+    left: 100px;
+    top: 80px;
+}
+
+#title-child1 {
+    position: absolute;
+    right: 335px;
+    top: 30px;
+}
+
+#textarea-child1 {
+    position: absolute;
+    right: 100px;
+    top: 80px;
+}
+
+#title-child2 {
+    position: absolute;
+    left: 100px;    
+    bottom: 310px;
+}
+
+#textarea-child2 {
+    position: absolute;
+    left: 100px;
+    bottom: 80px;
+}
+
+#canvas {
+    position: absolute;
+    right: 90px;
+    bottom: 10px;
+}
+
+#title-log {
+    position: absolute;
+    right: 370px;
+    bottom: 310px;
+}
+
+#textarea-log {
+    position: absolute;
+    right: 100px;
+    bottom: 170px;
+}
+
+#start-button {
+    position: absolute;
+    right: 220px;
+    bottom: 80px;
+}
+
+#sigint-button {
+    position: absolute;
+    right: 100px;
+    bottom: 80px;
+}
+
+.button {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	/* padding: .5em 2em .55em; */
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.button:hover {
+    text-decoration: none;
+    color: #ae79a9;
+}

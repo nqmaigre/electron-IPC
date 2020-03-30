@@ -6,15 +6,24 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <textarea id='textarea-1'></textarea>
-    <textarea id='textarea-2'></textarea>
-    <textarea id='textarea-3'></textarea>
-    <textarea id='textarea-4'></textarea>
+    <p id='title-parent'>parent.js</p>
+    <textarea id='textarea-parent' cols='45' rows='15'></textarea>
 
-    <button id='start-button'>START</button>
-    <button id='sigint-button'>SIGINT</button>
+    <p id='title-child1'>child1.js</p>
+    <textarea id='textarea-child1' cols='45' rows='15'></textarea>
+
+    <p id='title-child2'>child2.js</p>
+    <textarea id='textarea-child2' cols='45' rows='15'></textarea>
+
+    <p id='title-log'>log</p>
+    <textarea id='textarea-log' cols='45' rows='9'></textarea>
+    <canvas id='canvas'></canvas>
+
+    <button id='start-button' class='button'>START</button>
+    <button id='sigint-button' class='button'>SIGINT</button>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

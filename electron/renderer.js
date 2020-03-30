@@ -6,12 +6,22 @@
 // process.
 const ipcRenderer = require('electron').ipcRenderer;
 
-const textArea1 = document.getElementById('textarea-1');
-const textArea2 = document.getElementById('textarea-2');
-const textArea3 = document.getElementById('textarea-3');
-const textArea4 = document.getElementById('textarea-4');
+const textAreaParent = document.getElementById('textarea-parent');
+const textAreaChild1 = document.getElementById('textarea-child1');
+const textAreaChild2 = document.getElementById('textarea-child2');
+const textAreaLog = document.getElementById('textarea-log');
 const startButton = document.getElementById('start-button'); 
 const sigintButton = document.getElementById('sigint-button');
+const canvas = document.getElementById('canvas');
+
+const displayNewSquare = (length, color='#DFDFDF') => {
+    const context = canvas.getContext('2d');
+
+    canvas.width = canvas.width;
+    context.fillStyle = color;
+    context.fillRect(0, 0, length, length); 	
+};
+
 
 startButton.addEventListener('click', (event) => {
     ipcRenderer.send('start-button-click');
@@ -28,14 +38,20 @@ sigintButton.addEventListener('click', (event) => {
 ipcRenderer.on('procs-message', (event, data) => {
     // console.log(data);
     if(data.type === 'parent') {
-        textArea1.value = data.content;
+        textAreaParent.value += data.content + '\n';
+        textAreaParent.scrollTop = textAreaParent.scrollHeight;
     } else if(data.type === 'child1') {
-        textArea2.value = data.content;
+        textAreaChild1.value += data.content + '\n';
+        textAreaChild1.scrollTop = textAreaChild1.scrollHeight;
     } else if(data.type === 'child2') {
-        textArea3.value = data.content;
+        textAreaChild2.value += data.content + '\n';
+        textAreaChild2.scrollTop = textAreaChild2.scrollHeight;
     } else if(data.type === 'child3') {
-        textArea4.value = data.content;
+        // textArea4.value += data.content + '\n';
+        // textArea4.scrollTop = textArea4.scrollHeight;
+        displayNewSquare(data.content*80);
     } else if(data.type === 'log') {
         console.log(data.content);
+        textAreaLog.value += data.content + '\n';
     }
 });
